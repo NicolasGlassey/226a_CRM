@@ -6,7 +6,7 @@ namespace CRM
     public class Tests
     {
         #region private attributes
-        private Contact? _contact = null;
+        private Contact? _contact;
         private string? _name;
         private string? _firstname;
         private DateTime _dateOfBirth;
@@ -32,11 +32,10 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string actualName = "";
             string expectedName = "Ricard";
-            
+
             //when
-            actualName = _contact.Name;
+            string actualName = _contact.Name;
 
             //then
             Assert.AreEqual(expectedName, actualName);
@@ -47,11 +46,10 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string actualFirstname = "";
             string expectedFirstname = "Mathieu";
 
             //when
-            actualFirstname = _contact.Firstname;
+            string actualFirstname = _contact.Firstname;
 
             //then
             Assert.AreEqual(expectedFirstname, actualFirstname);
@@ -73,17 +71,57 @@ namespace CRM
         }
 
         [Test]
+        public void DateOfBirth_SetValue_Success()
+        {
+            //given
+            //refere to Setup method
+            DateTime actualDateOfBirth;
+            DateTime currentLastUpdate = _contact.LastUpdate;
+            DateTime actualLastUpdate;
+            DateTime expectedDateOfBirth = new DateTime(1947, 02, 15);//instead of 1946
+
+            //when
+            _contact.DateOfBirth = expectedDateOfBirth;
+
+            //then
+            actualDateOfBirth = _contact.DateOfBirth;
+            actualLastUpdate = _contact.LastUpdate;
+
+            Assert.AreNotEqual(currentLastUpdate, actualLastUpdate);
+            Assert.AreEqual(expectedDateOfBirth, actualDateOfBirth);
+        }
+
+        [Test]
         public void Nationality_GetValue_Success()
         {
             //given
             //refere to Setup method
-            string actualNationality = "";
             string expectedNationality = "France";
 
             //when
-            actualNationality = _contact.Nationality;
+            string actualNationality = _contact.Nationality;
 
             //then
+            Assert.AreEqual(expectedNationality, actualNationality);
+        }
+
+        [Test]
+        public void Nationality_SetValue_Success()
+        {
+            //given
+            //refere to Setup method
+            DateTime currentLastUpdate = _contact.LastUpdate;
+            DateTime actualLastUpdate;
+            string expectedNationality = "Allemagne";//instead of France
+
+            //when
+            _contact.Nationality = expectedNationality;
+
+            //then
+            string actualNationality = _contact.Nationality;
+            actualLastUpdate = _contact.LastUpdate;
+
+            Assert.AreNotEqual(currentLastUpdate, actualLastUpdate);
             Assert.AreEqual(expectedNationality, actualNationality);
         }
 
@@ -92,26 +130,45 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string actualEmail = "";
             string expectedEmail = "mathieu.ricard@monk.org";
 
             //when
-            actualEmail = _contact.Email;
+            string actualEmail = _contact.Email;
 
             //then
             Assert.AreEqual(expectedEmail, actualEmail);
         }
 
         [Test]
+        public void Email_SetValue_Success()
+        {
+            //given
+            //refere to Setup method
+            DateTime currentLastUpdate = _contact.LastUpdate;
+            DateTime actualLastUpdate;
+            string expectedEmail = "mathieu.ricard@monk.ti";
+
+            //when
+            _contact.Email = expectedEmail;
+
+            //then
+            string actualEmail = _contact.Email;
+            actualLastUpdate = _contact.LastUpdate;
+
+            Assert.AreNotEqual(currentLastUpdate, actualLastUpdate);
+            Assert.AreEqual(expectedEmail, actualEmail);
+        }
+
+
+        [Test]
         public void PathToImg_GetValue_Success()
         {
             //given
             //refere to Setup method
-            string actualPathToImg = "";
             string expectedPathToImg = "ricard.png";
 
             //when
-            actualPathToImg = _contact.PathToImg;
+            string actualPathToImg = _contact.PathToImg;
 
             //then
             Assert.AreEqual(expectedPathToImg, actualPathToImg);
@@ -130,6 +187,28 @@ namespace CRM
             actualPathToImg = contact.PathToImg;
 
             //then
+            Assert.AreEqual(expectedPathToImg, actualPathToImg);
+        }
+
+        [Test]
+        public void PathToImg_SetValue_Success()
+        {
+            //given
+            //refere to Setup method
+            Contact contact = new Contact(_name, _firstname, _dateOfBirth, _nationality, _email);
+            string actualPathToImg = "";
+            DateTime currentLastUpdate = contact.LastUpdate;
+            DateTime actualLastUpdate;
+            string expectedPathToImg = "/myNewImage.png";
+
+            //when
+            contact.PathToImg = expectedPathToImg;
+
+            //then
+            actualPathToImg = contact.PathToImg;
+            actualLastUpdate = contact.LastUpdate;
+
+            Assert.AreNotEqual(currentLastUpdate, actualLastUpdate);
             Assert.AreEqual(expectedPathToImg, actualPathToImg);
         }
 
