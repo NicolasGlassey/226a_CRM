@@ -32,7 +32,7 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string expectedName = "Ricard";
+            string expectedName = _name;
 
             //when
             string actualName = _contact.Name;
@@ -46,7 +46,7 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string expectedFirstname = "Mathieu";
+            string expectedFirstname = _firstname;
 
             //when
             string actualFirstname = _contact.Firstname;
@@ -96,7 +96,7 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string expectedNationality = "France";
+            string expectedNationality = _nationality;
 
             //when
             string actualNationality = _contact.Nationality;
@@ -130,7 +130,7 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string expectedEmail = "mathieu.ricard@monk.org";
+            string expectedEmail = _email;
 
             //when
             string actualEmail = _contact.Email;
@@ -146,7 +146,7 @@ namespace CRM
             //refere to Setup method
             DateTime currentLastUpdate = _contact.LastUpdate;
             DateTime actualLastUpdate;
-            string expectedEmail = "mathieu.ricard@monk.ti";
+            string expectedEmail = "matthieu.ricard@monk.ti";
 
             //when
             _contact.Email = expectedEmail;
@@ -165,7 +165,7 @@ namespace CRM
         {
             //given
             //refere to Setup method
-            string expectedPathToImg = "ricard.png";
+            string expectedPathToImg = _pathToImg;
 
             //when
             string actualPathToImg = _contact.PathToImg;
