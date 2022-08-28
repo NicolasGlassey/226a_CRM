@@ -41,7 +41,7 @@ namespace CRM
             }
             else
             {
-                _pathToImg = pathToImg;
+                _pathToImg = "/";
             }     
             _creationDate = DateTime.Now;
             _lastUpdate = _creationDate;
