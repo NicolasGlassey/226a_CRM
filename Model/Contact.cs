@@ -5,7 +5,7 @@ namespace CRM
     /// <summary>
     /// This class is designed to manage a Contact
     /// </summary>
-    public class Contact
+    class Contact
     {
         #region private attributes
         private string _name;
