@@ -48,7 +48,7 @@ namespace CRM
             //given
             //refere to Setup method
             string actualFirstname = "";
-            string expectedFirstname = "Mathieu";
+            string expectedFirstname = "Matthieu";
 
             //when
             actualFirstname = _contact.Firstname;
@@ -93,7 +93,7 @@ namespace CRM
             //given
             //refere to Setup method
             string actualEmail = "";
-            string expectedEmail = "mathieu.ricard@monk.org";
+            string expectedEmail = "matthieu.ricard@monk.org";
 
             //when
             actualEmail = _contact.Email;
