@@ -34,15 +34,8 @@ namespace CRM
             _firstname = firstname;
             _dateOfBirth = dateOfBirth;
             _nationality = nationality;
-            _email = "matthieu.ricard@monk.org";
-            if (pathToImg != "/")
-            {
-                _pathToImg = pathToImg;
-            }
-            else
-            {
-                _pathToImg = "/";
-            }     
+            _email = email;
+            _pathToImg = pathToImg;    
             _creationDate = DateTime.Now;
             _lastUpdate = _creationDate;
         }
@@ -113,7 +106,7 @@ namespace CRM
             set
             {
                 _email = value;
-                _lastUpdate = DateTime.Now;
+                UpdateLastUpdate();
             }
         }
 
@@ -126,8 +119,7 @@ namespace CRM
         {
             get
             {
-                string path = _pathToImg;
-                return path;
+                return _pathToImg;
             }
             set
             {
@@ -144,7 +136,6 @@ namespace CRM
             get
             {
                 return _creationDate;
-                UpdateLastUpdate();
             }
         }
 
